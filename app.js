@@ -24,8 +24,8 @@ function updateDom(data){
             return `
             </div>
                 <div class="card">
-                    <div class="card-image">
-                        <img src="${anime.image_url}">
+                    <div class="card-body">
+                        <img src="${anime.image_url}" width ="300" height="400">
                     </div>
                     <div class="card-content">
                         <span class="card-title">${anime.title}</span>

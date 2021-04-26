@@ -6,12 +6,12 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
        
         
-    </head>
+    </head> 
     <body>
         <nav class="row">
             <div class="nav-wrapper">
                 <div class="col s12">
-                    <a href="#" class="brand-logo">WEEB PROJECT</a>
+                    <a href="#" style = "text-align:center;" class="brand-logo">MANGA</a>
                     <ul id="nav-mobile" class="right hide-on-med-and-down">
                     </ul>
                 </div>
@@ -20,19 +20,17 @@
         <li class="nav-item active">
             <a class="nav-link" href="cart.html" onclick="toShoppingCart()" >My Watch List <span class="sr-only"></span></a>
         </li>
-        <li class="nav-item active">
-            <a class="nav-link" href="anime.html" onclick="toShoppingCart()" >Anime <span class="sr-only"></span></a>
-        </li>
-        <li class="nav-item active">
-            <a class="nav-link" href="#" onclick="toShoppingCart()" >Manga <span class="sr-only"></span></a>
-        </li>
+        
         <div class="container">
             <div class="row">
                 <form id="search_form" class="col s12">
                     <div class="row">
                         <div class="input-field col s6">
-                            <input placeholder="Type..." name="search" id="search" type="text" class="validate">
-                            <label for="search">Search</label>
+                            <input placeholder="Search..." name="search" id="search" type="text" class="validate">
+                             <label for="search"></label> 
+                        </div>
+                        <div class="col-auto">
+                            <button class="btn btn-lg btn-success" type="submit" onclick="searchAnime()">Search</button>
                         </div>
                     </div>
                 </form>
