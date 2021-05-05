@@ -1,22 +1,27 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <!-- Compiled and minified CSS -->
-        <meta charset="UTF-8">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-       
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <meta character= "UTF-8">
+        <meta name="viewport" content="width=device-width, initiate-scale=1.0">
+        <title> World Wide Web</title>
         
     </head>
     <body>
         <nav class="row">
             <div class="nav-wrapper">
                 <div class="col s12">
-                    <a href="#" class="brand-logo">WEEB PROJECT</a>
+                    <a href="#" class="brand-logo">WorldWideWeebs</a>
                     <ul id="nav-mobile" class="right hide-on-med-and-down">
                     </ul>
                 </div>
             </div>
         </nav>
+        <li class="nav-item active">
+            <input type="button" value="Trending Anime" onclick="topAnime();"></button>
+            <a class="mytopanime" href="#" onclick="topAnime()" >Top Anime <span></span></a>
+        </li>
         <li class="nav-item active">
             <a class="nav-link" href="cart.html" onclick="toShoppingCart()" >My Watch List <span class="sr-only"></span></a>
         </li>
@@ -31,19 +36,19 @@
                 <form id="search_form" class="col s12">
                     <div class="row">
                         <div class="input-field col s6">
-                            <input placeholder="Type..." name="search" id="search" type="text" class="validate">
-                            <label for="search">Search</label>
+                            <input id="animeID" placeholder="Ex) Naruto..." type="text" ></input>
+                            <label for="animeID"></label>
+                            <input type="button" value="Go!" onclick="searchAnime();"></button>
                         </div>
                     </div>
                 </form>
             </div>
         </div>
         <div id="search-results" class="container">
-            
+        <div id="top-results" class="mytopanime">
+   
         </div>
 
-        <!-- Compiled and minified JavaScript -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>        
         <script src="./app.js"></script>
     </body>
 </html>
