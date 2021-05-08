@@ -100,7 +100,7 @@ function updateDom(data){
         const searchResults = document.getElementById('top-results');
 
         //card layouts from https://materializecss.com/cards.html         
-        searchResults.innerHTML = data.results
+        searchResults.innerHTML = data.top
             .map(anime=>{
                 return `
                 </div>
