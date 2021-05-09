@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+                <meta name="viewport" content="with=device-width, initial-scale=1.0">
+                <title>World Wide Weeb: Final ITSC-3155 Project</title>
+                <link rel = "stylesheet" href="style.css" id="theme-link">
+                <link rel="preconnect" href="https://fonts.gstatic.com">
+                <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap" rel="stylesheet">
+
+    </head>
+
+    <body onload="javascript:topAnime()">
+        <section class="searchAnime">
+            <nav>
+                <a href="index.html"><img src="images/website-logo.png" alt=""></a>
+                <div class="nav-links">
+                    <ul>
+                        <li><a href="index.html">HOME</a></li>
+                        <li><a href="">MY WATCH LIST</a></li>
+                        <button id="darkModeBtn">Darkmode</button>
+                    </ul>
+                </div>
+            </nav>
+
+
+            <div class="anime-search-title">
+                <a href="searchAnime.html" class="anime-title-text">Anime</button> </a>
+                <br><br>
+                <top-anime-btn>Trending Page</top-anime-btn>
+            </div>
+
+
+            <div class="text-box-anime">
+                <input id="animeID" placeholder=" Or search for your favorites..." type="text" class="anime-input-box">
+                <input type="button" value="Go!" onclick="searchAnime();" class="anime-search-btn"></button>
+                <label for="advancedCheck">Advanced Search</label> 
+                <input type="checkbox" id="advancedCheck" onclick="advancedAnime()">                
+            </div>
+            <p id="advancedAnime" style="display:none">
+                <label class="container">Action
+                    <input type="checkbox" name="genre[]" value="1">
+                    <span class="checkmark"></span>
+                </label>
+                
+                <label class="container">Adventure
+                    <input type="checkbox" name="genre[]" value="2">
+                    <span class="checkmark"></span>
+                </label>
+                
+                <label class="container">Cars
+                    <input type="checkbox" name="genre[]" value="3">
+                    <span class="checkmark"></span>
+                </label>
+                
+                <label class="container">Comedy
+                    <input type="checkbox" name="genre[]" value="4">
+                    <span class="checkmark"></span>
+                </label>
+
+                <label class="container">Dementia
+                    <input type="checkbox" name="genre[]" value="5">
+                    <span class="checkmark"></span>
+                </label>
+                
+                <label class="container">Demons
+                    <input type="checkbox" name="genre[]" value="6">
+                    <span class="checkmark"></span>
+                </label>
+                
+                <label class="container">Mystery
+                    <input type="checkbox" name="genre[]" value="7">
+                    <span class="checkmark"></span>
+                </label>
+                
+                <label class="container">Drama
+                    <input type="checkbox" name="genre[]" value="8">
+                    <span class="checkmark"></span>
+                </label>
+                
+                <label class="container">Ecchi
+                    <input type="checkbox" name="genre[]" value="9">
+                    <span class="checkmark"></span>
+                </label>
+                
+                <label class="container">Fantasy
+                    <input type="checkbox" name="genre[]" value="10">
+                    <span class="checkmark"></span>
+                </label>
+                
+                <label class="container">Game
+                    <input type="checkbox" name="genre[]" value="11">
+                    <span class="checkmark"></span>
+                </label>
+                
+                <label class="container">Historical
+                    <input type="checkbox" name="genre[]" value="13">
+                    <span class="checkmark"></span>
+                </label>
+
+                <label class="container">Horror
+                    <input type="checkbox" name="genre[]" value="14">
+                    <span class="checkmark"></span>
+                </label>
+                
+                <label class="container">Kids
+                    <input type="checkbox" name="genre[]" value="15">
+                    <span class="checkmark"></span>
+                </label>
+                
+                <label class="container">Magic
+                    <input type="checkbox" name="genre[]" value="16">
+                    <span class="checkmark"></span>
+                </label>
+                
+                <label class="container">Martial Arts
+                    <input type="checkbox" name="genre[]" value="17">
+                    <span class="checkmark"></span>
+                </label>
+                
+                <label class="container">Mecha
+                    <input type="checkbox" name="genre[]" value="18">
+                    <span class="checkmark"></span>
+                </label>
+                
+                <label class="container">Music
+                    <input type="checkbox" name="genre[]" value="19">
+                    <span class="checkmark"></span>
+                </label>
+                
+                <label class="container">Parody
+                    <input type="checkbox" name="genre[]" value="20">
+                    <span class="checkmark"></span>
+                </label>
+                
+                <label class="container">Samurai
+                    <input type="checkbox" name="genre[]" value="21">
+                    <span class="checkmark"></span>
+                </label>
+                
+                <label class="container">Romance
+                    <input type="checkbox" name="genre[]" value="22">
+                    <span class="checkmark"></span>
+                </label>
+                
+                <label class="container">School
+                    <input type="checkbox" name="genre[]" value="23">
+                    <span class="checkmark"></span>
+                </label>
+                
+                <label class="container">Sci Fi
+                    <input type="checkbox" name="genre[]" value="24">
+                    <span class="checkmark"></span>
+                </label>
+                
+                <label class="container">Shoujo
+                    <input type="checkbox" name="genre[]" value="25">
+                    <span class="checkmark"></span>
+                </label>
+                
+                <label class="container">Shoujo Ai
+                    <input type="checkbox" name="genre[]" value="26">
+                    <span class="checkmark"></span>
+                </label>
+                
+                <label class="container">Shounen
+                    <input type="checkbox" name="genre[]" value="27">
+                    <span class="checkmark"></span>
+                </label>
+                
+                <label class="container">Shounen Ai
+                    <input type="checkbox" name="genre[]" value="28">
+                    <span class="checkmark"></span>
+                </label>
+                
+                <label class="container">Space
+                    <input type="checkbox" name="genre[]" value="29">
+                    <span class="checkmark"></span>
+                </label>
+                
+                <label class="container">Sports
+                    <input type="checkbox" name="genre[]" value="30">
+                    <span class="checkmark"></span>
+                </label>
+                
+                <label class="container">Super Power
+                    <input type="checkbox" name="genre[]" value="31">
+                    <span class="checkmark"></span>
+                </label>
+                
+                <label class="container">Vampire
+                    <input type="checkbox" name="genre[]" value="32">
+                    <span class="checkmark"></span>
+                </label>
+                
+                <label class="container">Yaoi
+                    <input type="checkbox" name="genre[]" value="33">
+                    <span class="checkmark"></span>
+                </label>
+                
+                <label class="container">Yuri
+                    <input type="checkbox" name="genre[]" value="34">
+                    <span class="checkmark"></span>
+                </label>
+                
+                <label class="container">Harem
+                    <input type="checkbox" name="genre[]" value="35">
+                    <span class="checkmark"></span>
+                </label>
+                
+                <label class="container">Slice of Life
+                    <input type="checkbox" name="genre[]" value="36">
+                    <span class="checkmark"></span>
+                </label>
+                
+                <label class="container">Supernatural
+                    <input type="checkbox" name="genre[]" value="37">
+                    <span class="checkmark"></span>
+                </label>
+                
+                <label class="container">Military
+                    <input type="checkbox" name="genre[]" value="38">
+                    <span class="checkmark"></span>
+                </label>
+                
+                <label class="container">Police
+                    <input type="checkbox" name="genre[]" value="39">
+                    <span class="checkmark"></span>
+                </label>
+                
+                <label class="container">Psychological
+                    <input type="checkbox" name="genre[]" value="40">
+                    <span class="checkmark"></span>
+                </label>
+                
+                <label class="container">Thriller
+                    <input type="checkbox" name="genre[]" value="41">
+                    <span class="checkmark"></span>
+                </label>
+                
+                <label class="container">Seinen
+                    <input type="checkbox" name="genre[]" value="42">
+                    <span class="checkmark"></span>
+                </label>
+                
+                <label class="container">Josei
+                    <input type="checkbox" name="genre[]" value="43">
+                    <span class="checkmark"></span>
+                </label>
+                
+            </p>
+
+            <div id="search-results" class="container">
+            <div id="top-results">
+            </div>
+            </div>
+
+
+            <script src="./app.js"></script>
+        </section>
+
+
+    </body>
+</html>
