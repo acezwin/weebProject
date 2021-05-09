@@ -7,15 +7,26 @@ function searchAnime(){
    var input = $("#animeID").val();
    // Button event
    var button = document.getElementById("searchButton");
+
+   var genre = document.getElementsByName("genre[]");
+   var genreChecked = '';
+
+   for(i = 0; i < genre.length; i++){
+       if(genre[i].checked){
+           genreChecked = genreChecked.concat("&genre="+genre[i]);
+       }
+   }
+
    // API
    const settings = {
        "async": true,
        "crossDomain": true,
        // Syntax works
-       "url": `${api}/search/anime?q=${input}&page=1`,
+       "url": `${api}/search/anime?q=${input}&page=1${genreChecked}`,
        "method": "GET",
-       "type": "anime",
+       "type": "anime"
    };
+
    // Logging to see progress
    console.log(input);
 
@@ -27,6 +38,16 @@ function searchAnime(){
        });
 }
 
+function advancedAnime() {
+    var checkBox = document.getElementById("advancedCheck");
+    var text = document.getElementById("advancedAnime");
+    if (checkBox.checked == true){
+      text.style.display = "block";
+    } else {
+       text.style.display = "none";
+    }
+}
+
 // Same as searchAnime(), type = mange
 function searchManga(){
 
@@ -35,11 +56,20 @@ function searchManga(){
 
    var button = document.getElementById("searchButton");
 
+   var genre = document.getElementsByName("genre");
+   var genreChecked = '';
+
+   for(i = 0; i < genre.length; i++){
+       if(genre[i].checked){
+           genreChecked = genreChecked.concat('&genre='+i);
+       }
+   }
+
    const settings = {
        "async": true,
        "crossDomain": true,
        //syntax works
-       "url": `${api}/search/manga?q=${input}&page=1`,
+       "url": `${api}/search/anime?q=${input}&page=1${genreChecked}`,
        "method": "GET",
        "type": "manga",
    };
