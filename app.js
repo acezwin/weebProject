@@ -17,8 +17,6 @@ function searchAnime(){
        }
    }
 
-   console.log(genreChecked);
-
    // API
    const settings = {
        "async": true,
