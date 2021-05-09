@@ -13,9 +13,11 @@ function searchAnime(){
 
    for(i = 0; i < genre.length; i++){
        if(genre[i].checked){
-           genreChecked = genreChecked.concat("&genre="+genre[i]);
+           genreChecked = genreChecked.concat("&genre="+genre[i].value);
        }
    }
+
+   console.log(genreChecked);
 
    // API
    const settings = {
@@ -61,7 +63,7 @@ function searchManga(){
 
    for(i = 0; i < genre.length; i++){
        if(genre[i].checked){
-           genreChecked = genreChecked.concat('&genre='+i);
+           genreChecked = genreChecked.concat('&genre='+genre[i].value);
        }
    }
 
@@ -81,6 +83,16 @@ function searchManga(){
        updateDom(response);
        console.log("logged");
        });
+}
+
+function advancedManga() {
+    var checkBox = document.getElementById("advancedCheck");
+    var text = document.getElementById("advancedManga");
+    if (checkBox.checked == true){
+      text.style.display = "block";
+    } else {
+       text.style.display = "none";
+    }
 }
 
 // Displaying result for anime/manga
