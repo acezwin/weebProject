@@ -1,71 +1,174 @@
-const base_url = "https://api.jikan.moe/v3";
+/* ITSC-3155 Final Project: World Wide Weeb
+   app.js for API implementation
+*/
 
+const api = "https://api.jikan.moe/v3";
+const theme = document.querySelector("#theme-link");
 
-function searchAnime(event){
+// Take user input and uses API to retrieve the anime list (unsorted)
+function searchAnime(){
+   // User input selected
+   var input = $("#animeID").val();
+   // Button event
+   var button = document.getElementById("searchButton");
+   var genre = document.getElementsByName("genre[]");
 
-    event.preventDefault();
+   var genreChecked = '';
+   for(i = 0; i < genre.length; i++){
+       if(genre[i].checked){
+           genreChecked = genreChecked.concat("&genre="+genre[i].value);
+       }
+   }
 
-    const form = new FormData(this);
-    const query = form.get("search");
+   // API
+   const settings = {
+       "async": true,
+       "crossDomain": true,
+       // Syntax works
+       "url": `${api}/search/anime?q=${input}&page=1${genreChecked}`,
+       "method": "GET",
+       "type": "anime"
+   };
 
-    fetch(`${base_url}/search/anime?q=${query}&page=1`)
-    .then(res=>res.json())
-    .then(updateDom)
-    .catch(err=>console.warn(err.message));
+   // Logging to see progress
+   console.log(input);
+
+   // Progress + display result function called
+   $.ajax(settings).done(function (response) {
+       console.log(response);
+       updateDom(response);
+       console.log("logged");
+       });
 }
 
+// For genre-filtering
+function advancedAnime() {
+    var checkBox = document.getElementById("advancedCheck");
+    var text = document.getElementById("advancedAnime");
+    if (checkBox.checked == true){
+      text.style.display = "block";
+    } else {
+       text.style.display = "none";
+    }
+}
+
+// Same as searchAnime(), type = mange
+function searchManga(){
+    var input = $("#animeID").val();
+    var button = document.getElementById("searchButton");
+
+    var genre = document.getElementsByName("genre[]");
+    
+    var genreChecked = '';
+    for(i = 0; i < genre.length; i++){
+       if(genre[i].checked){
+           genreChecked = genreChecked.concat("&genre="+genre[i].value);
+       }
+    }
+
+    const settings = {
+        "async": true,
+        "crossDomain": true,
+        //syntax works
+        "url": `${api}/search/manga?q=${input}&page=1${genreChecked}`,
+        "method": "GET",
+        "type": "manga",
+    };
+    console.log(input);
+
+    $.ajax(settings).done(function (response) {
+        console.log(response);
+        updateDom(response);
+        console.log("logged");
+        });
+}
+
+// For genre-filtering
+function advancedManga() {
+    var checkBox = document.getElementById("advancedCheck");
+    var text = document.getElementById("advancedManga");
+    if (checkBox.checked == true){
+      text.style.display = "block";
+    } else {
+       text.style.display = "none";
+    }
+}
+
+// Displaying result for anime/manga
 function updateDom(data){
 
-    const searchResults = document.getElementById('search-results');
+   const searchResults = document.getElementById('search-results');
+   searchResults.innerHTML = data.results
+       .map(anime=>{
+           return `
+               <div class="card-content">
+                   <div class="card-title"> <br> <br>
+                       <b href="">.............................</b>
+                       ${anime.title}
+                   </div>
+                   <table>
+                       <td>...................................................</td>
+                       <td><img src="${anime.image_url}" width ="150" height="200"></td>
+                       <td>............</td>
+                       <div class="card-synopsis">
+                           <td> ${anime.synopsis} <br>
+                           <a href="${anime.url}"><br>Find out more</a></td>
+                       </div>
+                       <td>...................................................</td>
+                   </table>
+           `
+       }).join("");
+   }
 
-    searchResults.innerHTML = data.results
-        .sort((a,b)=>a.episodes-b.episodes)            
-        .map(anime=>{
-            return `
-            </div>
-                <div class="card">
-                    <div class="card-body">
-                        <img src="${anime.image_url}" width ="300" height="400">
-                    </div>
-                    <div class="card-content">
-                        <span class="card-title">${anime.title}</span>
-                        <p>${anime.synopsis}</p>
-                    </div>
-                    <div class="card-action">
-                        <a href="${anime.url}">Find out more</a>
-                    </div>
-                </div>
-            `
-        }).join("");
-    }
+// Pulling top anime sorted by rank 1-x
+function topAnime(){
+   var settings = {
+       "url": "https://api.jikan.moe/v3/top/anime/1/upcoming",
+       "method": "GET",
+       "timeout": 0,
+         "type": "anime",
+         "page":1,
+         "subtype": "upcoming",
+     };
 
-function pageLoaded(){
-    const form = document.getElementById('search_form');
-    form.addEventListener("submit", searchAnime);
+     $.ajax(settings).done(function (response) {
+       console.log(response);
+       showTopAnime(response);
+
+     });
 }
 
-
-window.addEventListener("load", pageLoaded);
-
-function toShoppingCart(){
-    let email =$.trim($('#email').val()); //gets the user's email
-
-    //email validation
-
-    if( email !='' ) {
-        sessionStorage.setItem('email', email); //setItem 'email' in sessionStorage to be the user's email. You can access sessionStorage by sessionStorage.getItem().
-        window.location.href = './cart.html'; //redirect to the shopping cart page
-    } else {
-        alert("Please enter your email at top of page."); //alert user since email is empty
-    }
+// Display top anime
+function showTopAnime(data){
+   const searchResults = document.getElementById('top-results');
+   searchResults.innerHTML = data.top
+       .map(anime=>{
+       return `
+           <div class="card-content">
+               <div class="card-title"> <br> <br>
+                   <b href="">.............................</b>
+                   ${anime.rank}. ${anime.title}
+               </div>
+               <table>
+                   <td>...................................................</td>
+                   <td><img src="${anime.image_url}" width ="150" height="200"></td>
+                   <td>............</td>
+                   <div class="card-synopsis">
+                       <td> Members: ${anime.members}<br>Start Date: ${anime.start_date}<br>Type: ${anime.type}
+                       <a href="${anime.url}"><br><br>Find out more</a></td>
+                   </div>
+                   <td>...................................................</td>
+               </table>
+       `
+   }).join("");
 }
 
-$('#exampleModal').on('show.bs.modal', function (event) {
-    $('#ajaxForm').trigger("reset");
-    var button = $(event.relatedTarget);
-    var recipient = button.data('whatever');
-    var modal = $(this);
-    modal.find('#btnSave').off().click(function () {
-        setComment(recipient);
-    });
-});
+// Dark mode - switch to darkstyle.css
+document.getElementById('darkModeBtn').onclick = function Darkmode() {
+if(theme.getAttribute("href") == "style.css") {
+    theme.href = "darkstyle.css";
+}
+else {
+    theme.href = "style.css"
+}
+}

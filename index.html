@@ -1,49 +1,37 @@
+<!-- ITSC-3155 Final Project: World Wide Weeb
+     index.html for home page formatting
+-->
+
 <!DOCTYPE html>
 <html>
-    <head>
-        <!-- Compiled and minified CSS -->
-        <meta charset="UTF-8">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-       
-        
-    </head>
-    <body>
-        <nav class="row">
-            <div class="nav-wrapper">
-                <div class="col s12">
-                    <a href="#" class="brand-logo">WEEB PROJECT</a>
-                    <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <li class="nav-item active">
-            <a class="nav-link" href="cart.html" onclick="toShoppingCart()" >My Watch List <span class="sr-only"></span></a>
-        </li>
-        <li class="nav-item active">
-            <a class="nav-link" href="anime.html" onclick="toShoppingCart()" >Anime <span class="sr-only"></span></a>
-        </li>
-        <li class="nav-item active">
-            <a class="nav-link" href="manga.html" onclick="toShoppingCart()" >Manga <span class="sr-only"></span></a>
-        </li>
-        <div class="container">
-            <div class="row">
-                <form id="search_form" class="col s12">
-                    <div class="row">
-                        <div class="input-field col s6">
-                            <input placeholder="Type..." name="search" id="search" type="text" class="validate">
-                            <label for="search">Search</label>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-        <div id="search-results" class="container">
-            
-        </div>
+   <head>
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <meta name="viewport" content="with=device-width, initial-scale=1.0">
+       <title>World Wide Weeb: ITSC-3155 Final Project</title>
+       <link rel = "stylesheet" href="style.css" id="theme-link">
+       <link rel="preconnect" href="https://fonts.gstatic.com">
+       <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap" rel="stylesheet">
+   </head>
 
-        <!-- Compiled and minified JavaScript -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>        
-        <script src="./app.js"></script>
-    </body>
+   <body>
+       <section class="header">
+           <nav>
+               <a href="index.html"><img src="images/website-logo.png" alt=""></a>
+               <div class="nav-links">
+                   <ul>
+                       <li><a href="index.html">HOME</a></li>
+                       <li><a href="searchAnime.html">FIND ANIME</a></li>
+                       <li><a href="searchManga.html">FIND MANGA</a></li>
+                        <input type="button" id="darkModeBtn" value="TOGGLE LIGHTS" class="darkmode-btn"></button>
+                   </ul>
+               </div>
+           </nav>
+           <div class="text-box">
+               <h1>World Wide Weeb</h1>
+               <p>Anime and manga - kept simple.</p>
+               <a href="searchAnime.html" class="anime-btn">Anime</button> </a>
+               <a href="searchManga.html" class="manga-btn">Manga</button> </a>
+       </div>
+       </section>
+   </body>
 </html>
